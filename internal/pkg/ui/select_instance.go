@@ -2,10 +2,11 @@ package ui
 
 import (
 	"fmt"
-	"github.com/manifoldco/promptui"
-	"github.com/semiherdogan/aws-ssh/internal/pkg/aws"
 	"os"
 	"strings"
+
+	"github.com/manifoldco/promptui"
+	"github.com/semiherdogan/aws-ssh/internal/pkg/aws"
 )
 
 func SelectInstance(instances []aws.Instance) aws.Instance {

@@ -1,8 +1,9 @@
 package ui
 
 import (
-	"github.com/manifoldco/promptui"
 	"os"
+
+	"github.com/manifoldco/promptui"
 )
 
 func GetInput(s string) string {

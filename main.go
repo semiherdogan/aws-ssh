@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strings"
+
 	"github.com/semiherdogan/aws-ssh/internal/pkg/aws"
 	"github.com/semiherdogan/aws-ssh/internal/pkg/ui"
 	"github.com/semiherdogan/aws-ssh/internal/pkg/utils"
-	"os"
-	"strings"
 )
 
 func main() {

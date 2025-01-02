@@ -1,9 +1,10 @@
 package aws
 
 import (
+	"log"
+
 	"github.com/aws/aws-sdk-go-v2/config"
 	"gopkg.in/ini.v1"
-	"log"
 )
 
 // GetLocalAwsProfiles Taken from: https://github.com/aws/aws-sdk-go/issues/3656#issuecomment-2017510038
@@ -20,9 +21,7 @@ func GetLocalAwsProfiles() (profiles []string) {
 		log.Fatal("No profiles section found")
 	}
 
-	for _, s := range sections[1:] {
-		profiles = append(profiles, s)
-	}
+	profiles = append(profiles, sections[1:]...)
 
 	return
 }

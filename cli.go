@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/semiherdogan/aws-ssh/internal/pkg/utils"
 	"os"
+
+	"github.com/semiherdogan/aws-ssh/internal/pkg/utils"
 )
 
 type fn[T any] func()

@@ -2,8 +2,9 @@ package ui
 
 import (
 	"fmt"
-	"github.com/manifoldco/promptui"
 	"os"
+
+	"github.com/manifoldco/promptui"
 )
 
 func SelectProfile(profiles []string) string {
