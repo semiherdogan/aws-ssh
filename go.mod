@@ -8,6 +8,7 @@ require (
 	github.com/aws/aws-sdk-go-v2 v1.36.3
 	github.com/aws/aws-sdk-go-v2/config v1.29.9
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.210.1
+	github.com/chzyer/readline v1.5.1
 	github.com/manifoldco/promptui v0.9.0
 	github.com/savioxavier/termlink v1.4.2
 	gopkg.in/ini.v1 v1.67.0
@@ -25,7 +26,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.29.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.33.17 // indirect
 	github.com/aws/smithy-go v1.22.3 // indirect
-	github.com/chzyer/readline v1.5.1 // indirect
 	github.com/stretchr/testify v1.8.4 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 )
