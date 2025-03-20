@@ -25,7 +25,7 @@ func main() {
 
 	var userSelectedRegion aws.Region
 	cli.AddCommand("--region", "-r", func() {
-		userSelectedRegion = ui.SelectRegion(aws.GetRegions())
+		userSelectedRegion = ui.SelectRegion(aws.GetAllRegions())
 	})
 
 	var userFilter string
@@ -44,9 +44,15 @@ func main() {
 	var awsInstances []aws.Instance
 	var currentRegion aws.Region
 
-	regions := aws.GetRegions()
+	var regions []aws.Region
 	if userSelectedRegion.Name != "" {
 		regions = []aws.Region{userSelectedRegion}
+	} else {
+		regions = aws.GetRegions(profile)
+
+		if len(regions) == 0 {
+			regions = []aws.Region{ui.SelectRegion(aws.GetAllRegions())}
+		}
 	}
 
 	for _, r := range regions {
