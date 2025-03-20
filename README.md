@@ -4,6 +4,8 @@ Cli tool for connection to EC2 through session manager.
 
 It's a wrapper UI around AWS CLI tool, designed to simplify the process of connecting to your EC2 instances. This tool leverages the AWS CLI and SSM plugin to provide a user-friendly interface for selecting and connecting to EC2 instances.
 
+![AWS SSH Demo](ss.gif)
+
 ### Before installing this tool:
 > This tool requires you to install AWS CLI tool and SSM plugin.
 For installing, you may follow the link below:
@@ -14,24 +16,31 @@ For installing, you may follow the link below:
 
 ### Installation
 
-To install AWS SSH, you can use the `go get` command:
-
-```bash
-go get github.com/semiherdogan/aws-ssh
-```
+You can download the latest release from the [releases page](https://github.com/semiherdogan/aws-ssh/releases).
 
 ### Usage
 
 ```bash
-aws-ssh [OPTIONS] searchparam1 searchparam2 ...
+aws-ssh [--profile|-p] [--region|-r] searchparam1 searchparam2 ...
 ```
 
 This will launch a UI that lists all your EC2 instances. You can search and select the instance you wish to connect to. The tool will then initiate a connection using the AWS Session Manager.
 
 ### Features
-* Easy to use UI for selecting EC2 instances
+* Easy to use TUI for selecting EC2 instances
 * Search functionality to quickly find your instances
 * Connects to EC2 through AWS Session Manager for secure access
+
+### Region Configuration
+Add regions section into your `.aws/credentials` file to specify the regions you want to connect to (comma separated).
+If you don't specify any regions, the tool will ask you to select a region when you run it.
+Example:
+```
+[default]
+aws_access_key_id = YOUR_ACCESS_KEY
+aws_secret_access_key = YOUR_SECRET_KEY
+regions = us-east-1,us-west-2
+```
 
 ### Contributing
 Contributions are welcome! Please feel free to submit a pull request.
