@@ -9,6 +9,7 @@ import (
 
 func SelectProfile(profiles []string) string {
 	prompt := promptui.Select{
+		Stdout:   &noBellStdout{},
 		Label:    "Profile",
 		Items:    profiles,
 		Size:     5,

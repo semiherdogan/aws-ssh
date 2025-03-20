@@ -29,6 +29,7 @@ func SelectRegion(regions []aws.Region) aws.Region {
 	}
 
 	prompt := promptui.Select{
+		Stdout:            &noBellStdout{},
 		Label:             "Region:",
 		Items:             regions,
 		Templates:         template,

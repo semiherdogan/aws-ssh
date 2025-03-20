@@ -19,6 +19,7 @@ func SelectInstance(instances []aws.Instance) aws.Instance {
 	}
 
 	prompt := promptui.Select{
+		Stdout:            &noBellStdout{},
 		Label:             fmt.Sprintf("Select Instance (total: %d)", len(instances)),
 		Items:             instances,
 		Size:              13,
