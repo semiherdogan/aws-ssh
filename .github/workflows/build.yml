@@ -47,6 +47,9 @@ jobs:
         with:
           path: artifacts
 
+      - name: List downloaded artifacts
+        run: ls -R artifacts/
+
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
