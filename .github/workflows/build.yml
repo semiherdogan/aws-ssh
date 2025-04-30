@@ -45,11 +45,11 @@ jobs:
           path: artifacts
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: |
-            artifacts/aws-ssh-ubuntu-latest
-            artifacts/aws-ssh-macos-latest
+            artifacts/aws-ssh-ubuntu-latest/aws-ssh
+            artifacts/aws-ssh-macos-latest/aws-ssh
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
