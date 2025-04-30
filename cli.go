@@ -14,10 +14,12 @@ type Cli struct {
 	Version string
 }
 
+var Version = "dev"
+
 func NewCli() *Cli {
 	return &Cli{
 		Args:    os.Args[1:],
-		Version: "0.2.2",
+		Version: Version,
 	}
 }
 
