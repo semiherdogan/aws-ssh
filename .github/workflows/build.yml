@@ -28,13 +28,13 @@ jobs:
         run: go build -v ./...
 
       - name: Build Binary
-        run: go build -o aws-ssh
+        run: go build -o aws-ssh-${{ matrix.os }}
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: aws-ssh-${{ matrix.os }}
-          path: aws-ssh
+          path: aws-ssh-${{ matrix.os }}
 
   release:
     name: Create Release
@@ -47,15 +47,12 @@ jobs:
         with:
           path: artifacts
 
-      - name: List downloaded artifacts
-        run: ls -R artifacts/
-
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            artifacts/aws-ssh-ubuntu-latest/aws-ssh
-            artifacts/aws-ssh-macos-latest/aws-ssh
+            artifacts/aws-ssh-ubuntu-latest/aws-ssh-ubuntu-latest
+            artifacts/aws-ssh-macos-latest/aws-ssh-macos-latest
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
