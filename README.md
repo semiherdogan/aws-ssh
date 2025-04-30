@@ -2,14 +2,20 @@
 
 Cli tool for connection to EC2 through session manager.
 
-It's a wrapper TUI around AWS CLI tool, designed to simplify the process of connecting to your EC2 instances. 
+It's a wrapper TUI around AWS CLI tool, designed to simplify the process of connecting to your EC2 instances.
 
 This tool leverages the AWS CLI and SSM plugin to provide a user-friendly interface for selecting and connecting to EC2 instances.
 
 ![AWS SSH Demo](ss.gif)
 
 ### Before installing this tool:
-> This tool requires you to install AWS CLI tool and SSM plugin.
+> This tool requires you to install AWS CLI tool and SSM plugin. Also make sure aws cli and ssm plugin are in your PATH.
+> You can check if they are installed by running the following commands:
+
+```bash
+aws --version
+session-manager-plugin --version
+```
 For installing, you may follow the link below:
 
 [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
