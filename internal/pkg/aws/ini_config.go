@@ -1,9 +1,10 @@
 package aws
 
 import (
+	"log"
+
 	"github.com/aws/aws-sdk-go-v2/config"
 	"gopkg.in/ini.v1"
-	"log"
 )
 
 func GetIniConfig() (f *ini.File) {
