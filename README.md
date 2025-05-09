@@ -97,6 +97,7 @@ Here’s an example of an IAM policy that grants the necessary permissions:
 ### Notes
 - If you want to restrict access further, you can limit the `Resource` field to specific EC2 instances or tags.
 - Ensure the IAM user or role also has permissions to use the AWS Systems Manager (SSM) agent if required for SSH sessions.
+- **SSM must be enabled for the EC2 instance** to use this tool. Ensure that the instance has the necessary IAM role attached and the SSM agent is installed and running. You can follow the steps to enable SSM for your instance in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-prerequisites.html).
 
 ### Contributing
 
