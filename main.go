@@ -68,11 +68,18 @@ func main() {
 			},
 		}
 
-		awsInstances = pkgAws.GetEc2Instances()
-
-		if len(awsInstances) > 0 {
-			break
+		instances, err := pkgAws.GetEc2Instances()
+		if err != nil {
+			fmt.Printf("Error fetching EC2 instances: %v\n", err)
+			return
 		}
+
+		awsInstances = append(awsInstances, instances...)
+	}
+
+	if len(awsInstances) == 0 {
+		fmt.Println("No instances found.")
+		os.Exit(0)
 	}
 
 	instances := utils.Filter(awsInstances, func(i aws.Instance) bool {

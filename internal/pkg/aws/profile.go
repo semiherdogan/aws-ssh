@@ -4,6 +4,7 @@ import (
 	"log"
 )
 
+// GetLocalAwsProfiles retrieves the list of AWS profiles from the shared credentials file.
 func GetLocalAwsProfiles() []string {
 	sections := GetIniConfig().SectionStrings()
 

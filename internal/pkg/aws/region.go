@@ -10,24 +10,24 @@ type Region struct {
 }
 
 func GetRegions(profile string) []Region {
-	regions := strings.Split(GetIniConfig().Section(profile).Key("regions").String(), ",")
+	regionMap := make(map[string]Region)
+	for _, ar := range GetAllRegions() {
+		regionMap[ar.Value] = ar
+	}
 
+	regions := strings.Split(GetIniConfig().Section(profile).Key("regions").String(), ",")
 	var result []Region
-	allRegions := GetAllRegions()
 
 	for _, region := range regions {
-		trimmedRegion := strings.TrimSpace(region)
-		for _, ar := range allRegions {
-			if ar.Value == trimmedRegion {
-				result = append(result, ar)
-				break
-			}
+		if ar, exists := regionMap[strings.TrimSpace(region)]; exists {
+			result = append(result, ar)
 		}
 	}
 
 	return result
 }
 
+// GetAllRegions returns a predefined list of all AWS regions.
 func GetAllRegions() []Region {
 	// Taken from: https://docs.aws.amazon.com/general/latest/gr/rande.html
 	// Find:    ^(.+)\t(.+)$
