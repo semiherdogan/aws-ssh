@@ -27,7 +27,14 @@ For installing, you may follow the link below:
 ### Installation
 
 You can download the latest release from the [releases page](https://github.com/semiherdogan/aws-ssh/releases).
-Move the binary to your PATH.
+Move the binary to your PATH and make it executable.
+
+```bash
+chmod +x aws-ssh
+mv aws-ssh /usr/local/bin/aws-ssh
+```
+
+> On first run on MacOS, you need to allow the app to run in your security settings. Go to `System Preferences > Security & Privacy > General` and click on `Allow Anyway` for the app.
 
 ### Usage
 
@@ -68,9 +75,6 @@ To run this application, you need the following AWS Identity and Access Manageme
 2. **SSM Session Start** (for SSH commands via SSM):
    - `ssm:StartSession`
 
-3. **Terminate Instances** (if you want to terminate instances using the `TerminateCommand`):
-   - `ec2:TerminateInstances`
-
 ### Example IAM Policy
 Here’s an example of an IAM policy that grants the necessary permissions:
 
@@ -82,8 +86,7 @@ Here’s an example of an IAM policy that grants the necessary permissions:
       "Effect": "Allow",
       "Action": [
         "ec2:DescribeInstances",
-        "ssm:StartSession",
-        "ec2:TerminateInstances"
+        "ssm:StartSession"
       ],
       "Resource": "*"
     }
