@@ -57,6 +57,44 @@ aws_secret_access_key = YOUR_SECRET_KEY
 regions = us-east-1,us-west-2
 ```
 
+## Required AWS Permissions
+
+To run this application, you need the following AWS Identity and Access Management (IAM) permissions:
+
+### Minimum Required Permissions
+1. **Describe Instances**:
+   - `ec2:DescribeInstances`
+
+2. **SSM Session Start** (for SSH commands via SSM):
+   - `ssm:StartSession`
+
+3. **Terminate Instances** (if you want to terminate instances using the `TerminateCommand`):
+   - `ec2:TerminateInstances`
+
+### Example IAM Policy
+Here’s an example of an IAM policy that grants the necessary permissions:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeInstances",
+        "ssm:StartSession",
+        "ec2:TerminateInstances"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+### Notes
+- If you want to restrict access further, you can limit the `Resource` field to specific EC2 instances or tags.
+- Ensure the IAM user or role also has permissions to use the AWS Systems Manager (SSM) agent if required for SSH sessions.
+
 ### Contributing
 
 Contributions are welcome! Please feel free to submit a pull request.
